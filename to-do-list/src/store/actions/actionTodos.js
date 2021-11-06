@@ -36,13 +36,10 @@ export function addTodos(payload) {
   };
 }
 
-export function editTodos(todoId, data) {
+export function editTodos(payload) {
   return {
     type: EDIT_TODOS,
-    payload: {
-      id: todoId,
-      data,
-    },
+    payload,
   };
 }
 

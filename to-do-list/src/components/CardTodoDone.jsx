@@ -3,7 +3,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { editTodos, deleteTodos } from "../store/actions/actionTodos";
 import { useSelector, useDispatch } from "react-redux";
 
-export default function CardTodo({ item }) {
+export default function CardTodoDone({item}) {
   const dispatch = useDispatch();
   const [update, setUpdate] = useState(false);
   const handleCloseUpdate = () => setUpdate(false);
@@ -40,14 +40,14 @@ export default function CardTodo({ item }) {
 
   return (
     <>
-      <div onClick={handleShowUpdate} className="card-todo">
-        <div className="id-todo">
+      <div onClick={handleShowUpdate} className="card-todo-done">
+        <div className="id-todo-done">
           <span>{item.id}</span>
         </div>
-        <div className="title-todo">
+        <div className="title-todo-done">
           <span>{item.title}</span>
         </div>
-        <div className="desc-todo">
+        <div className="desc-todo-done">
           <span>{item.description}</span>
         </div>
       </div>
@@ -96,7 +96,7 @@ export default function CardTodo({ item }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={() => deleteTodo(item.id)}>
+          <Button variant="danger" disabled onClick={() => deleteTodo(item.id)}>
             Delete
           </Button>
         </Modal.Footer>
